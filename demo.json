@@ -1,0 +1,14 @@
+{
+  "slug": "struktura",
+  "domain": "struktura.slscustom.ru",
+  "title": "Структура — облачный учёт партнёров MLM",
+  "container_port": 8082,
+  "health": "/health",
+  "memory": "256m",
+  "data_dir": "/app/data",
+  "env": {
+    "NODE_ENV": "production",
+    "COOKIE_SECURE": "1"
+  },
+  "note": "Демо-данные. Владелец: owner@demo.ru / demo1234. Партнёр: partner@demo.ru / demo1234."
+}

@@ -73,6 +73,32 @@ docker compose exec struktura node server/add-user.js partner2@example.ru 'stron
 `partnerId` — ID партнёра в структуре. Найти его можно в карточке партнёра в
 приложении. Партнёр увидит этого партнёра корнем своей ветки.
 
+## Деплой на VPS (Selectel, Ubuntu)
+
+Нужен домен/поддомен, A-запись которого указывает на публичный IP VPS, и
+открытые порты 80/443. Caddy сам получит HTTPS-сертификат.
+
+```bash
+# на VPS, из корня репозитория
+sudo bash deploy/install.sh cloud.example.ru
+```
+
+Скрипт поставит Docker (если его нет), соберёт приложение, поднимет Caddy на
+80/443 и проверит `https://<домен>/login`. Данные лежат в `data/db.json` на
+хосте; контейнер приложения не публикует 8082 наружу.
+
+Если на VPS уже заняты 80/443 (nginx/Apache/панель), не запускайте Caddy из
+этого compose: добавьте reverse proxy на `http://127.0.0.1:8082` в существующем
+nginx или освободите порты. В Selectel откройте 80/443 в security group.
+
+Бэкап:
+
+```bash
+tar czf /var/backups/struktura-$(date +%F).tgz data
+```
+
+Пароли и demo-маршруты — см. «Продакшен» ниже.
+
 ## Продакшен
 
 1. Поставьте HTTPS (Caddy, nginx или облачный балансировщик) и

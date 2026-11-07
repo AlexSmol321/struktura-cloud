@@ -1,0 +1,8 @@
+{$DOMAIN} {
+	encode zstd gzip
+	reverse_proxy struktura:8082
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy same-origin
+	}
+}

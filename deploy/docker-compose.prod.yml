@@ -1,0 +1,42 @@
+services:
+  struktura:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: struktura-cloud
+    environment:
+      PORT: 8082
+      HOST: 0.0.0.0
+      COOKIE_SECURE: "1"
+    volumes:
+      - ../data:/app/data
+    expose:
+      - "8082"
+    restart: unless-stopped
+    networks:
+      - internal
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: struktura-caddy
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN:?Set DOMAIN in deploy/.env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - struktura
+    restart: unless-stopped
+    networks:
+      - internal
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  internal:

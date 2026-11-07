@@ -1,0 +1,13 @@
+{
+  "name": "struktura-cloud",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Структура Cloud — облачный учёт партнёров MLM",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

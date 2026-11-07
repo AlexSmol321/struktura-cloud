@@ -1,0 +1,13 @@
+services:
+  struktura:
+    build: .
+    container_name: struktura-cloud
+    ports:
+      - "8082:8082"
+    volumes:
+      - ./data:/app/data
+    environment:
+      PORT: 8082
+      HOST: 0.0.0.0
+      # COOKIE_SECURE: "1"
+    restart: unless-stopped

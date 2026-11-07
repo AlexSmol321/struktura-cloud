@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Структура — вход в облако</title>
+  <link rel="icon" href="icons/appIcon.png">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <main class="login">
+    <section class="login__aside">
+      <div class="login__brand">
+        <img src="icons/appIcon.png" alt="">
+        <div>
+          <div class="login__brand-name">Структура</div>
+          <div class="login__brand-sub">учёт партнёров MLM</div>
+        </div>
+      </div>
+
+      <div class="login__aside-main">
+        <div class="login__eyebrow">облачная версия</div>
+        <h1>Вся структура<br>в одном окне.</h1>
+        <p>Партнёры, ветки A/B/C, объёмы, начисления и выплаты. Владелец видит всю сеть, партнёр — свою ветку и только чтение.</p>
+        <ul class="login__features">
+          <li><span>A</span>Тринар и перелив</li>
+          <li><span>B</span>Объёмы и баллы</li>
+          <li><span>C</span>Excel и резервные копии</li>
+        </ul>
+      </div>
+
+      <div class="login__aside-foot">
+        <span class="login__dot"></span>
+        Демо-контур. Данные вымышленные.
+      </div>
+    </section>
+
+    <section class="login__panel">
+      <div class="login__card">
+        <div class="login__card-head">
+          <div class="login__title">Вход в облако</div>
+          <div class="login__sub">Единая структура на сервере, доступ с любого устройства.</div>
+        </div>
+
+        <form id="login-form" autocomplete="on" novalidate>
+          <label class="login__field">
+            <span>E-mail</span>
+            <input id="login-email" type="email" name="email" required autocomplete="username" value="owner@demo.ru">
+          </label>
+          <label class="login__field">
+            <span>Пароль</span>
+            <input id="login-password" type="password" name="password" required autocomplete="current-password" value="demo1234">
+          </label>
+          <div class="login__error" id="login-error" hidden></div>
+          <button class="login__submit" id="login-submit" type="submit">Войти</button>
+        </form>
+
+        <div class="login__or"><span>демо-доступ</span></div>
+        <div class="login__demo">
+          <button type="button" class="login__demo-btn" data-demo="owner">
+            <b>Владелец</b>
+            <span>вся структура, добавление и выплаты</span>
+          </button>
+          <button type="button" class="login__demo-btn" data-demo="partner">
+            <b>Партнёр</b>
+            <span>своя ветка, только просмотр</span>
+          </button>
+        </div>
+
+        <div class="login__hint">
+          Демо-пароли: <code>owner@demo.ru</code> / <code>demo1234</code><br>
+          <code>partner@demo.ru</code> / <code>demo1234</code>
+        </div>
+        <div class="login__access">Доступ партнёрам выдаёт владелец структуры.</div>
+      </div>
+
+      <div class="login__panel-foot">
+        <span>Локальная версия — на компьютере, без интернета.</span>
+        <span>© Структура</span>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>

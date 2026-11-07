@@ -1,0 +1,86 @@
+/* Облачная обвязка: пользователь, выход, режим просмотра. */
+
+.web-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 8px 0 6px;
+  margin-left: 2px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  max-width: 220px;
+}
+
+.web-user__avatar {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--olive-soft);
+  color: var(--olive);
+  font-size: 10.5px;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+}
+
+.web-user__text { min-width: 0; line-height: 1.15; }
+
+.web-user__name {
+  font-size: 11.5px;
+  font-weight: 650;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 104px;
+}
+
+.web-user__role {
+  margin-top: 2px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+body.web-readonly .web-user__role { color: var(--gold-strong); }
+
+.web-user__logout {
+  border: 0;
+  background: transparent;
+  padding: 4px 5px;
+  margin-left: 1px;
+  color: var(--muted);
+  font-size: 10.5px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+.web-user__logout:hover { background: var(--surface-3); color: var(--ink); }
+
+/* Партнёрский кабинет: только просмотр. */
+body.web-readonly [data-action="add"],
+body.web-readonly [data-action="transfer"],
+body.web-readonly [data-action="withdraw"],
+body.web-readonly [data-action="mark-paid"],
+body.web-readonly [data-action="restore"],
+body.web-readonly [data-action="reset"],
+body.web-readonly #profile-form button[type="submit"] {
+  display: none !important;
+}
+
+body.web-readonly #profile-form input {
+  opacity: 0.72;
+  cursor: default;
+}
+
+body.web-readonly .settings-card .hint { color: var(--muted); }
+
+/* В облачном режиме отключаем входную анимацию страницы: не мешает скриншотам и быстрее. */
+.page { animation: none !important; }
+
+body.web-readonly .tnode--free .tnode__free-plus { display: none; }

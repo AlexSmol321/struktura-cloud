@@ -23,6 +23,15 @@
 ![Кабинет владельца](docs/owner.jpg)
 ![Кабинет партнёра](docs/partner.jpg)
 
+## Живое демо
+
+- <https://struktura.178-72-151-232.sslip.io> — работает сразу
+- <https://struktura.slscustom.ru> — после A-записи `struktura` → `178.72.151.232` в reg.ru
+
+Демо живёт на общем стенде `demos-infra` (Selectel, Caddy, Docker); деплой —
+`demo.json` + `demohub deploy`. Входы: `owner@demo.ru / demo1234` и
+`partner@demo.ru / demo1234`.
+
 ## Демо
 
 Демо-контур работает сразу после запуска:

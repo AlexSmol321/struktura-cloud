@@ -62,3 +62,16 @@ if (root) {
 }
 document.addEventListener('DOMContentLoaded', injectUser);
 window.addEventListener('load', injectUser);
+
+// Яндекс.Метрика: отдельный hit на переходы внутри SPA.
+const METRIKA_ID = 114133114;
+function metrikaHit(page) {
+  if (typeof window.ym !== 'function') return;
+  const url = `${location.origin}${location.pathname}?page=${encodeURIComponent(page)}`;
+  window.ym(METRIKA_ID, 'hit', url, { title: document.title });
+}
+document.addEventListener('click', (ev) => {
+  const nav = ev.target.closest('[data-nav]');
+  if (!nav) return;
+  setTimeout(() => metrikaHit(nav.dataset.nav), 80);
+}, true);

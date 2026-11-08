@@ -308,7 +308,7 @@ const server = http.createServer(async (req, res) => {
     if (pathname === '/' || pathname === '/index.html') {
       const auth = currentSession(req);
       if (!auth) {
-        return send(res, 302, '', { Location: '/login' });
+        return serveStatic(req, res, '/login.html');
       }
       return serveStatic(req, res, '/index.html');
     }
